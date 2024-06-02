@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import { Button } from "./Button";
+import Button from "@/components/button";
 
 const meta = {
   title: "Components/Button",
@@ -9,38 +9,43 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
+  argTypes: {},
   args: { onClick: fn() },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    label: "Button",
+  },
+};
+
 export const Primary: Story = {
   args: {
-    primary: true,
+    type: "primary",
     label: "Button",
   },
 };
 
-export const Secondary: Story = {
+export const Dashed: Story = {
   args: {
+    type: "dashed",
     label: "Button",
   },
 };
 
-export const Large: Story = {
+export const Link: Story = {
   args: {
-    size: "large",
+    type: "link",
     label: "Button",
   },
 };
 
-export const Small: Story = {
+export const Text: Story = {
   args: {
-    size: "small",
+    type: "text",
     label: "Button",
   },
 };
